@@ -17,12 +17,13 @@ import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import StopScreenShareIcon from '@mui/icons-material/StopScreenShare'; // or ScreenShareOffIcon
 import { Badge } from '@mui/material';
 import ChatIcon from '@mui/icons-material/Chat';
+import server from '../environment'
 
 
 
 
 
-const server_url = "http://localhost:8000";
+const server_url = `${server.prod}//loc/api/v1/users`;
 
 const connections = {};
 
