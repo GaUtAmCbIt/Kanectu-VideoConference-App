@@ -23,7 +23,7 @@ import server from '../environment'
 
 
 
-const server_url = `${server.prod}//loc/api/v1/users`;
+const server_url = `${server.prod}/api/v1/users`;
 
 const connections = {};
 

@@ -9,7 +9,7 @@ export const AuthContext = createContext({});
 
 // Axios instance with proper baseURL
 const client = axios.create({
-    baseURL: `${server.prod}//loc/api/v1/users`
+    baseURL: `${server.prod}/api/v1/users`
 });
 
 // AuthProvider component
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
             if (request.status === httpStatus.OK) {
                 localStorage.setItem("token", request.data.token);
-                
+
                 // Example navigation after login (optional):
                 // router("/dashboard");
             }
@@ -54,31 +54,31 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const getHistoryOfUser = async() => {
-        try{
-            let request = await client.get("/get_all_activity",{
+    const getHistoryOfUser = async () => {
+        try {
+            let request = await client.get("/get_all_activity", {
                 params: {
-                    token:localStorage.getItem("token")
+                    token: localStorage.getItem("token")
                 }
             })
             return request.data;
 
         }
-        catch(e){
+        catch (e) {
             throw e;
         }
     }
 
-    const addToUserHistory = async(meetingCode) => {
-        try{
-            let request = await client.post("/add_to_activity",{
-                token:localStorage.getItem("token"),
-                meeting_code:meetingCode
+    const addToUserHistory = async (meetingCode) => {
+        try {
+            let request = await client.post("/add_to_activity", {
+                token: localStorage.getItem("token"),
+                meeting_code: meetingCode
             })
             return request
 
         }
-        catch(error){
+        catch (error) {
             throw error;
         }
     }
